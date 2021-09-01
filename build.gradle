@@ -22,8 +22,9 @@ repositories {
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
 }
 apply plugin: 'maven-publish'
+apply plugin: 'maven'
 
-group = 'de.unisaarland.depend.cdp'
+group = 'com.github.dependables'
 version '1.0.0'
 kotlin {
     jvm()
