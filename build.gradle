@@ -62,3 +62,21 @@ kotlin {
 dependencies {
     dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:1.4.32")
 }
+
+wrapper {
+    gradleVersion = "6.1.1"
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                groupId = 'com.github.dependables'
+                artifactId = 'pcdf-core'
+                version = '1.0.1'
+            }
+        }
+    }
+}
