@@ -1,0 +1,11 @@
+# Gradle
+build/
+.gradle
+grade/.DS_Store
+
+# IDEA
+.idea/
+
+
+# Test
+src/commonTest/
