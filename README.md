@@ -56,4 +56,4 @@ Distributed under the MIT License. See **LICENSE** for more information.
 
 Yannik Schnitzer - s8yaschn@stud.uni-saarland.de
 
-Project Link: https://github.com/dependables/pcdf-core
+Project Link: https://github.com/udsdepend/pcdf-core
