@@ -44,6 +44,10 @@ open class OBDEvent(
                 RPMEvent(tmpbytes, source, timestamp, bytes, pid, mode)
             SPEED ->
                 SpeedEvent(tmpbytes, source, timestamp, bytes, pid, mode)
+            ABSOLUTE_THROTTLE_POSITION ->
+                AbsoluteThrottlePositionEvent(tmpbytes, source, timestamp, bytes, pid, mode)
+            RELATIVE_THROTTLE_POSITION ->
+                RelativeThrottlePositionEvent(tmpbytes, source, timestamp, bytes, pid, mode)
             INTAKE_AIR_TEMPERATURE ->
                 IntakeAirTemperatureEvent(tmpbytes, source, timestamp, bytes, pid, mode)
             MAF_AIR_FLOW_RATE ->
@@ -108,6 +112,7 @@ open class OBDEvent(
             SUPPORTED_PIDS_9_00 ->
                 SupportedPidsEvent(tmpbytes, source, timestamp, bytes, pid, mode)
             null -> throw Exception("There is no such pid and mode available")
+            else -> OBDIntermediateEvent(source, timestamp, bytes, pid, mode)
         }
     }
 

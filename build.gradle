@@ -24,7 +24,7 @@ repositories {
 apply plugin: 'maven-publish'
 
 group = 'com.github.udsdepend'
-version '1.0.2'
+version '1.0.3'
 kotlin {
     jvm()
 
@@ -74,7 +74,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.udsdepend'
                 artifactId = 'pcdf-core'
-                version = '1.0.2'
+                version = '1.0.3'
             }
         }
     }

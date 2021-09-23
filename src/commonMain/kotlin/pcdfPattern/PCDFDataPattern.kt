@@ -22,6 +22,7 @@ data class PCDFDataPattern(
     val mode: Int? = null,
     val pid: Int? = null,
     val rpm: Double? = null,
+    val throttlePosition: Double? = null,
     val engine_coolant_temperature: Int? = null,
     val ambient_air_temperature: Int? = null,
     val intake_air_temperature: Int? = null,
