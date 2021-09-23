@@ -142,6 +142,22 @@ class PatternParser {
                     mode,
                     pattern.data!!.speed!!
                 )
+                ABSOLUTE_THROTTLE_POSITION -> AbsoluteThrottlePositionEvent(
+                    source,
+                    timestamp,
+                    bytes,
+                    pid,
+                    mode,
+                    pattern.data!!.throttlePosition!!
+                )
+                RELATIVE_THROTTLE_POSITION -> RelativeThrottlePositionEvent(
+                    source,
+                    timestamp,
+                    bytes,
+                    pid,
+                    mode,
+                    pattern.data!!.throttlePosition!!
+                )
                 INTAKE_AIR_TEMPERATURE -> IntakeAirTemperatureEvent(
                     source,
                     timestamp,
@@ -398,6 +414,13 @@ class PatternParser {
                     pattern.data!!.supported_pids!!.toMutableList()
                 )
                 null -> throw Exception("There is no such pid and mode available")
+                else -> OBDIntermediateEvent(
+                    source,
+                    timestamp,
+                    bytes,
+                    pid,
+                    mode
+                )
             }
         } else {
             throw Exception("event type must be OBD_RESPONSE")

@@ -9,7 +9,7 @@ import pcdfEvent.events.obdEvents.OBDCommand
  * @param pid PID of the corresponding [OBDCommand].
  * @param mode Mode of the corresponding [OBDCommand].
  */
-abstract class OBDIntermediateEvent(
+open class OBDIntermediateEvent(
     source: String,
     timestamp: Long,
     bytes: String,
@@ -17,6 +17,6 @@ abstract class OBDIntermediateEvent(
     var mode: Int
 ) : OBDEvent(source, timestamp, bytes) {
     override fun toString(): String {
-        return super.toString() + "  " + "mode: $mode  pid: $pid \n"
+        return super.toString() + "  " + "mode: $mode  pid: $pid bytes: $bytes \n"
     }
 }
