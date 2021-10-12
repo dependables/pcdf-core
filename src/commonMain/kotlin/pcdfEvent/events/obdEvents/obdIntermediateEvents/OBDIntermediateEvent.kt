@@ -17,6 +17,6 @@ open class OBDIntermediateEvent(
     var mode: Int
 ) : OBDEvent(source, timestamp, bytes) {
     override fun toString(): String {
-        return super.toString() + "  " + "mode: $mode  pid: $pid bytes: $bytes \n"
+        return super.toString() + "  " + "mode: $mode  pid: $pid \n"
     }
 }
