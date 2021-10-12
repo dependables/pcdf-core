@@ -90,6 +90,12 @@ open class OBDEvent(
                 NOXSensorAlternativeEvent(tmpbytes, source, timestamp, bytes, pid, mode)
             NOX_SENSOR_CORRECTED_ALTERNATIVE ->
                 NOXSensorCorrectedAlternativeEvent(tmpbytes, source, timestamp, bytes, pid, mode)
+            NOX_CONTROL_SYSTEM ->
+                NOXControlSystem(tmpbytes, source, timestamp, bytes, pid, mode)
+            SCR_INDUCEMENT_SYSTEM ->
+                SCRInducementSystem(tmpbytes, source, timestamp, bytes, pid, mode)
+            AFTERTREATMENT_STATUS ->
+                AftertreatmentStatus(tmpbytes, source, timestamp, bytes, pid, mode)
             PARTICULAR_MATTER_SENSOR ->
                 ParticularMatterEvent(tmpbytes, source, timestamp, bytes, pid, mode)
             ENGINE_FUEL_RATE ->
