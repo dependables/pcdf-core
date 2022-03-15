@@ -27,6 +27,10 @@ class MetaEvent(
         return pattern
     }
 
+    override fun toIntermediate(): PCDFEvent {
+        return MetaEvent(source, timestamp, "INTERMEDIATE", ppcdf_version, ipcdf_version)
+    }
+
     override fun toString(): String {
         return "PCDF Type: $pcdf_type  Version: " +
                 if (pcdf_type == "PERSISTENT") {
