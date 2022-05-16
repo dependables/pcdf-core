@@ -134,5 +134,9 @@ data class PCDFDataPattern(
     val no_mass: Double? = null,
     val no2_mass: Double? = null,
     val o2_mass: Double? = null,
-    val pn: Double? = null
+    val pn: Double? = null,
+
+    // Lola properties
+    val stream_name: String? = null,
+    val stream_value: Double? = null
 )

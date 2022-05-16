@@ -1,15 +1,12 @@
 package pcdfPattern
 
-import pcdfEvent.events.AnalyserEvent
-import pcdfEvent.events.ErrorEvent
-import pcdfEvent.events.GPSEvent
-import pcdfEvent.events.MetaEvent
 import pcdfEvent.events.obdEvents.OBDCommand
 import pcdfEvent.events.obdEvents.OBDCommand.*
 import pcdfEvent.events.obdEvents.OBDEvent
 import pcdfEvent.events.obdEvents.obdIntermediateEvents.multiComponentEvents.*
 import pcdfEvent.events.obdEvents.obdIntermediateEvents.singleComponentEvents.*
 import pcdfEvent.PCDFEvent
+import pcdfEvent.events.*
 import pcdfEvent.events.obdEvents.obdIntermediateEvents.OBDIntermediateEvent
 
 /**
@@ -44,6 +41,9 @@ class PatternParser {
             }
             "META" -> {
                 return parseMeta(pattern)
+            }
+            "LOLA" -> {
+                return parseLolaData(pattern)
             }
             else -> {
                 throw Error("pattern was of invalid event type: only one Meta Event allowed")
@@ -423,7 +423,7 @@ class PatternParser {
                 )
             }
         } else {
-            throw Exception("event type must be OBD_RESPONSE")
+            throw Exception("Event type must be OBD_RESPONSE")
         }
     }
 
@@ -439,7 +439,7 @@ class PatternParser {
                 pattern.data!!.bytes!!
             )
         } else {
-            throw Error("event type must be OBD_RESPONSE")
+            throw Error("Event type must be OBD_RESPONSE")
         }
     }
 
@@ -473,7 +473,20 @@ class PatternParser {
                 pattern.data!!.pn
             )
         } else {
-            throw Error("event type must be ANALYSER")
+            throw Error("Event type must be ANALYSER")
+        }
+    }
+
+    private fun parseLolaData(pattern: PCDFPattern): PCDFEvent {
+        if (pattern.type == "LOLA") {
+            return LolaEvent(
+                pattern.source,
+                pattern.timestamp,
+                pattern.data!!.stream_name!!,
+                pattern.data!!.stream_value!!
+            )
+        } else {
+            throw Error("Event type must be Lola")
         }
     }
 }
