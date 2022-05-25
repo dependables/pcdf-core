@@ -7,6 +7,9 @@ import pcdfEvent.events.obdEvents.obdIntermediateEvents.multiComponentEvents.*
 import pcdfEvent.events.obdEvents.obdIntermediateEvents.singleComponentEvents.*
 import pcdfEvent.PCDFEvent
 import pcdfEvent.events.*
+import pcdfEvent.events.lolaEvents.LolaEvent
+import pcdfEvent.events.lolaEvents.LolaEventBool
+import pcdfEvent.events.lolaEvents.LolaEventDouble
 import pcdfEvent.events.obdEvents.obdIntermediateEvents.OBDIntermediateEvent
 
 /**
@@ -479,12 +482,25 @@ class PatternParser {
 
     private fun parseLolaData(pattern: PCDFPattern): PCDFEvent {
         if (pattern.type == "LOLA") {
-            return LolaEvent(
-                pattern.source,
-                pattern.timestamp,
-                pattern.data!!.stream_name!!,
-                pattern.data!!.stream_value!!
-            )
+            when {
+                pattern.data!!.stream_value_bool != null -> {
+                    return LolaEventBool(
+                        pattern.source,
+                        pattern.timestamp,
+                        pattern.data!!.stream_name!!,
+                        pattern.data!!.stream_value_bool!!
+                    )
+                }
+                pattern.data!!.stream_value_double != null -> {
+                    return LolaEventDouble(
+                        pattern.source,
+                        pattern.timestamp,
+                        pattern.data!!.stream_name!!,
+                        pattern.data!!.stream_value_double!!
+                    )
+                }
+                else -> throw Error("Event type must be Lola Bool or Double")
+            }
         } else {
             throw Error("Event type must be Lola")
         }

@@ -138,5 +138,6 @@ data class PCDFDataPattern(
 
     // Lola properties
     val stream_name: String? = null,
-    val stream_value: Double? = null
+    val stream_value_double: Double? = null,
+    val stream_value_bool: Boolean? = null
 )
