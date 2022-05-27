@@ -11,14 +11,6 @@ abstract class LolaEvent(
     val stream_name: String
 ) : PCDFEvent(source, EventType.LOLA, timestamp) {
 
-    override fun getPattern(): PCDFPattern {
-        val pattern = super.getPattern()
-        pattern.data = PCDFDataPattern(
-            stream_name = stream_name,
-        )
-        return pattern
-    }
-
     override fun toString(): String {
         return "Stream Name: $stream_name"
     }

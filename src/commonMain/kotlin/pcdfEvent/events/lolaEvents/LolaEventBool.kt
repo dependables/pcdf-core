@@ -12,13 +12,17 @@ class LolaEventBool(
     override fun getPattern(): PCDFPattern {
         val pattern = super.getPattern()
         pattern.data = PCDFDataPattern(
-            stream_name = stream_name,
-            stream_value_bool = stream_value_bool
+            stream_name = "value"
         )
         return pattern
     }
 
     override fun toString(): String {
         return "Stream Name: $stream_name, Value: $stream_value_bool"
+    }
+
+    override fun serialize(): String {
+        val string = super.serialize()
+        return string.replace("stream_name",stream_name).replace("value", stream_value_bool.toString())
     }
 }

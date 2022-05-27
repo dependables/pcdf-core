@@ -12,13 +12,17 @@ class LolaEventDouble(
     override fun getPattern(): PCDFPattern {
         val pattern = super.getPattern()
         pattern.data = PCDFDataPattern(
-            stream_name = stream_name,
-            stream_value_double = stream_value_double
+            stream_name = "value",
         )
         return pattern
     }
 
     override fun toString(): String {
         return "Stream Name: $stream_name, Value: $stream_value_double"
+    }
+
+    override fun serialize(): String {
+        val string = super.serialize()
+        return string.replace("stream_name",stream_name).replace("value", stream_value_double.toString())
     }
 }
