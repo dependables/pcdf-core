@@ -23,6 +23,6 @@ class LolaEventDouble(
 
     override fun serialize(): String {
         val string = super.serialize()
-        return string.replace("stream_name",stream_name).replace("value", stream_value_double.toString())
+        return string.replace("stream_name",stream_name).replace("\"value\"", stream_value_double.toString())
     }
 }
