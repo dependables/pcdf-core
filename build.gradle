@@ -1,7 +1,7 @@
 buildscript {
     ext.kotlin_version = '1.5.30'
     repositories {
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+        //maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
         mavenCentral()
     }
     dependencies {
@@ -18,8 +18,8 @@ plugins {
 repositories {
     mavenLocal()
     mavenCentral()
-    jcenter()
-    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    //jcenter()
+    //maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
 }
 apply plugin: 'maven-publish'
 
