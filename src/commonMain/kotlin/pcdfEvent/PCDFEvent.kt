@@ -27,7 +27,7 @@ open class PCDFEvent(
         return this
     }
 
-    fun serialize() : String {
+    open fun serialize() : String {
         return serializer.generateFromPattern(this.getPattern())
     }
 
