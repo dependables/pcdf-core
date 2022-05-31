@@ -14,6 +14,7 @@ class LolaEventDouble(
         pattern.data = PCDFDataPattern(
             mode= 1000,
             pid = 1000,
+            bytes = "1000",
             stream_name = "value"
         )
         return pattern

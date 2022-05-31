@@ -9,7 +9,7 @@ abstract class LolaEvent(
     source: String,
     timestamp: Long,
     val stream_name: String
-) : PCDFEvent(source, EventType.LOLA, timestamp) {
+) : PCDFEvent(source, EventType.OBD_RESPONSE, timestamp) {
 
     override fun toString(): String {
         return "Stream Name: $stream_name"
