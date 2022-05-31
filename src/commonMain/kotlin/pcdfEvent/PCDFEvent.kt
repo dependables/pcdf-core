@@ -14,7 +14,7 @@ import serialization.Serializer
 open class PCDFEvent(
     val source: String,
     val type: EventType,
-    val timestamp: Long,
+    var timestamp: Long,
 ) {
     /**
      * Returns the corresponding PCDFPattern.
