@@ -12,7 +12,9 @@ class LolaEventDouble(
     override fun getPattern(): PCDFPattern {
         val pattern = super.getPattern()
         pattern.data = PCDFDataPattern(
-            stream_name = "value",
+            mode= 1000,
+            pid = 1000,
+            stream_name = "value"
         )
         return pattern
     }
